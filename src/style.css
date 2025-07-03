@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'LibreBaskerville';
+  src: url('/src/fonts/LibreBaskerville-Italic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/src/fonts/Satoshi-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+/* Define CSS custom properties under :root */
+:root {
+  --font-Satoshi: 'Satoshi', sans-serif;
+  --font-Libre-italic: 'LibreBaskerville';
+}
+
+/* Custom checkbox animation */
+input[type="checkbox"]:checked + label .checkmark-svg {
+  opacity: 1;
+  transform: scale(1);
+  color: #22c55e;
+}
+
+input[type="checkbox"]:checked + label {
+  background-color: transparent;
+  border-color: #22c55e;
+}
+@layer components {
+  .task-card {
+    @apply bg-[#0A0A0B] flex flex-col border rounded-xl border-[#202021] py-3 pl-1 pr-3;
+  }
+
+  .task-header {
+    @apply flex justify-between items-center gap-4;
+  }
+
+  .task-main {
+    @apply flex grow items-center gap-3;
+  }
+
+  .task-checkbox-wrapper {
+    @apply shrink-0 p-2;
+  }
+
+  .task-checkbox-label {
+    @apply cursor-pointer flex items-center justify-center rounded-xl border border-gray-500 w-6 h-6;
+  }
+
+  .task-title {
+    @apply text-sm sm:text-base text-white/90 font-medium;
+  }
+
+  .task-buttons {
+    @apply flex items-center gap-1 sm:gap-2;
+  }
+
+  .task-button-group {
+    @apply inline-flex overflow-hidden rounded-lg border border-[#202021] divide-x divide-[#202021] bg-[#0F0F10];
+  }
+
+  .task-btn-delete {
+    @apply flex items-center gap-2 px-2 sm:px-4 py-2 text-white hover:text-red-400 hover:bg-[#1b1b1b];
+  }
+
+  .task-btn-toggle {
+    @apply px-3 py-2 text-white hover:text-gray-300 hover:bg-[#1b1b1b];
+  }
+
+  /* 👇 Description wrapper with NO animation — GSAP will handle this */
+  .task-description-wrapper {
+    @apply overflow-hidden max-h-0 opacity-0;
+  }
+
+  .task-description {
+    @apply text-sm text-gray-300 pt-3 px-4 pb-3;
+  }
+
+  .task-btn-toggle i.ph-caret-down {
+    @apply transition-transform;
+  }
+
+  .task-btn-toggle i.ph-caret-down.rotate-180 {
+    transform: rotate(180deg);
+  }
+}
+

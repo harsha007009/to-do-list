@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="grainFilter" x="0%" y="0%" width="100%" height="100%">
+      
+      <feTurbulence 
+        baseFrequency="0.7200000000000001" 
+        numOctaves="4" 
+        type="fractalNoise"
+        seed="1"
+        result="grain1"
+      />
+      <feColorMatrix 
+        in="grain1" 
+        type="saturate" 
+        values="0"
+        result="grain2"
+      />
+      <feComponentTransfer in="grain2" result="grain3">
+        <feFuncA type="discrete" tableValues="0 0.3 0 0.3 0 0.21 0"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="transparent" filter="url(#grainFilter)" />
+</svg>

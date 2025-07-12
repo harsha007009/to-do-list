@@ -27,6 +27,17 @@
   --font-Libre-italic: 'LibreBaskerville';
 }
 
+@layer utilities {
+  .font-Satoshi {
+    font-family: 'Satoshi', sans-serif;
+  }
+  
+  .font-Libre-italic {
+    font-family: 'LibreBaskerville', serif;
+    font-style: italic;
+  }
+}
+
 /* Custom checkbox animation */
 input[type="checkbox"]:checked + label .checkmark-svg {
   opacity: 1;
